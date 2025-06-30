@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .upbutton {
+      padding: 10px;
+      border: none;
+      background-color: rgb(241, 228, 238);
+      border-radius: 10px;
+      border: 2px solid rgb(155, 68, 236);
+      color: rgb(155, 68, 236);
+      cursor: pointer;
+    }
+
+    .upbutton:hover {
+      color: rgb(241, 228, 238);
+      background-color: rgb(155, 68, 236);
+    }
+
+    .header {
+      background: linear-gradient(135deg, rgb(171, 92, 246), rgb(192, 151, 231), rgb(198, 149, 245), rgb(171, 92, 246));
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 40px;
+      padding-right: 100px;
+      margin: -30px;
+    }
+
+    body {
+      background: linear-gradient(#e2f9e1, #ffffff);
+      padding: 30px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    h1 {
+      margin-top: 50px;
+    }
+
+    .controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    #searchInput,
+    #sortSelect {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin: 0 5px;
+      width: 220px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin: 30px 40px 40px 40px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+      padding-left: 20px;
+      text-align: center;
+      margin: 10px;
+      width: 200px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      color: #146356;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .price {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .price s {
+      color: red;
+      margin-left: 5px;
+      font-size: 14px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-cart {
+      background-color: #146356;
+      color: white;
+    }
+
+    .add-cart:hover {
+      background-color: #0c3d34;
+    }
+
+    .order-now {
+      background-color: white;
+      color: #146356;
+      border: 2px solid #146356;
+    }
+
+    .order-now:hover {
+      background-color: #146356;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <button class="upbutton" id="button1">Portfolio</button>
+    <button class="upbutton" id="button2">To-do List</button>
+    <button class="upbutton" id="button3">Product</button>
+  </header>
+
+  <h1 style="text-align:center; margin-bottom:10px; color:#146356;">Products</h1>
+
+  <!-- 🧠 Filter & Sort Controls -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by name" />
+    <select id="sortSelect">
+      <option value="">Sort by</option>
+      <option value="name-asc">Name (A–Z)</option>
+      <option value="name-desc">Name (Z–A)</option>
+      <option value="price-asc">Price (Low to High)</option>
+      <option value="price-desc">Price (High to Low)</option>
+    </select>
+  </div>
+
+  <!-- 🛍 Product Cards -->
+  <div class="container">
+    <div class="card" data-name="Samsung phone" data-price="90000">
+      <img src="images/phone.jpg" alt="products" />
+      <h3>Samsung phone</h3>
+      <div class="price"><strong>Cost: ₹90,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="Samsung AC" data-price="100000">
+      <img src="images/ac.jpg" alt="products" />
+      <h3>Samsung AC</h3>
+      <div class="price"><strong>Cost: ₹1,00,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="LEVN Headphones" data-price="10000">
+      <img src="images/headphones.jpg" alt="products" />
+      <h3>LEVN Headphones</h3>
+      <div class="price"><strong>Cost: ₹10,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="White Dress" data-price="10000">
+      <img src="images/dress.jpg" alt="products" />
+      <h3>White Dress</h3>
+      <div class="price"><strong>Cost: ₹10,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="Lenin Jeans" data-price="1000">
+      <img src="images/jeans.jpg" alt="products" />
+      <h3>Lenin Jeans</h3>
+      <div class="price"><strong>Cost: ₹1,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="Samsung TV" data-price="52000">
+      <img src="images/tv.jpg" alt="products" />
+      <h3>Samsung TV</h3>
+      <div class="price"><strong>Cost: ₹52,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="Mini Iron Box" data-price="2000">
+      <img src="images/ironbox.jpg" alt="products" />
+      <h3>Mini Iron Box</h3>
+      <div class="price"><strong>Cost: ₹2,000</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+
+    <div class="card" data-name="Chocolates" data-price="500">
+      <img src="images/chocolate.jpg" alt="products" />
+      <h3>Chocolates</h3>
+      <div class="price"><strong>Cost: ₹500</strong></div>
+      <button class="btn add-cart">ADD TO CART 🛒</button>
+      <button class="btn order-now">ORDER NOW 🛍</button>
+    </div>
+  </div>
+
+  <!-- Navigation Script -->
+  <script>
+    document.getElementById("button1").addEventListener("click", function () {
+      window.location.href = "task-4.html";
+    });
+
+    document.getElementById("button2").addEventListener("click", function () {
+      window.location.href = "todolist.html";
+    });
+
+    document.getElementById("button3").addEventListener("click", function () {
+      window.location.href = "product.html";
+    });
+  </script>
+
+  <!-- Filter & Sort Script -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const container = document.querySelector(".container");
+    let cards = Array.from(document.querySelectorAll(".card"));
+
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(term) ? "block" : "none";
+      });
+    });
+
+    sortSelect.addEventListener("change", () => {
+      const value = sortSelect.value;
+      let sorted = [...cards];
+
+      if (value === "name-asc") {
+        sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+      } else if (value === "name-desc") {
+        sorted.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+      } else if (value === "price-asc") {
+        sorted.sort((a, b) => a.dataset.price - b.dataset.price);
+      } else if (value === "price-desc") {
+        sorted.sort((a, b) => b.dataset.price - a.dataset.price);
+      }
+
+      sorted.forEach(card => container.appendChild(card));
+    });
+  </script>
+</body>
+</html>
